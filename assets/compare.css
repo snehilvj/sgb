@@ -1,0 +1,6 @@
+#compare-table table,
+#compare-table tr,
+#compare-table td,
+#compare-table th {
+    border: none;
+}
