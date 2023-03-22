@@ -139,7 +139,6 @@ top = dmc.Center(
         withBorder=True,
         shadow="md",
         radius="md",
-        style={"width": 350},
-        mb=2000,
+        w=350,
     ),
 )
