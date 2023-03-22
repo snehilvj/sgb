@@ -3,6 +3,7 @@ from dash import Dash
 
 from components.header import header
 from components.hero import hero
+from components.top import top
 
 app = Dash(__name__)
 
@@ -16,7 +17,7 @@ app.layout = dmc.MantineProvider(
     children=[
         dmc.Container(
             fluid=True,
-            children=[header, hero],
+            children=[header, hero, top],
         )
     ],
 )
