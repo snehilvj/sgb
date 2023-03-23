@@ -7,4 +7,6 @@ from components.love import love
 
 dash.register_page(__name__, path="/")
 
-layout = [hero, top, faqs, love]
+
+def layout():
+    return [hero, top(), faqs, love]
