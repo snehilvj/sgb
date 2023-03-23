@@ -30,7 +30,7 @@ top = dmc.Center(
                         position="center",
                         children=[
                             dmc.ActionIcon(
-                                DashIconify(icon="material-symbols:add"),
+                                DashIconify(icon="material-symbols:remove"),
                                 variant="outline",
                                 w=20,
                             ),
@@ -43,7 +43,7 @@ top = dmc.Center(
                                 w=100,
                             ),
                             dmc.ActionIcon(
-                                DashIconify(icon="material-symbols:remove"),
+                                DashIconify(icon="material-symbols:add"),
                                 variant="outline",
                                 w=20,
                             ),

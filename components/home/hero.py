@@ -1,8 +1,8 @@
 import dash_mantine_components as dmc
 from dash import html
 
-from components.compare import table
-from components.timeline import timeline
+from components.home.compare import table
+from components.home.timeline import timeline
 
 hero = html.Div(
     children=[

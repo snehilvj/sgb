@@ -11,7 +11,7 @@ header = dmc.Header(
         dmc.Group(
             position="apart",
             children=[
-                dmc.NavLink(label="Home", w="auto"),
+                dmc.NavLink(label="Home", w="auto", href="/"),
                 dmc.Group(
                     position="right",
                     children=[
@@ -35,16 +35,16 @@ header = dmc.Header(
                                             target="_blank",
                                         ),
                                         dmc.MenuItem(
-                                            "Useless Button",
-                                            id="useless-button",
-                                            n_clicks=0,
+                                            "NSE Website",
+                                            href="https://www.github.com/snehilvj",
+                                            target="_blank",
                                         ),
                                     ]
                                 ),
                             ],
                         ),
-                        dmc.NavLink(label="Explore", w="auto"),
-                        dmc.NavLink(label="Resources", w="auto"),
+                        dmc.NavLink(label="Explore", w="auto", href="/explore"),
+                        dmc.NavLink(label="Resources", w="auto", href="/resources"),
                     ],
                 ),
             ],

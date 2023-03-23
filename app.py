@@ -1,13 +1,18 @@
+import os
+
+import dash
 import dash_mantine_components as dmc
 from dash import Dash
 
-from components.faq import faqs
 from components.header import header
-from components.hero import hero
-from components.love import love
-from components.top import top
 
-app = Dash(__name__)
+external_scripts = [
+    ""
+    if os.environ.get("dev")
+    else "https://unpkg.com/dash.nprogress@latest/dist/dash.nprogress.js"
+]
+
+app = Dash(__name__, external_scripts=external_scripts, use_pages=True)
 
 app.layout = dmc.MantineProvider(
     withNormalizeCSS=True,
@@ -19,7 +24,7 @@ app.layout = dmc.MantineProvider(
     children=[
         dmc.Container(
             fluid=True,
-            children=[header, hero, top, faqs, love],
+            children=[header, dash.page_container],
         )
     ],
 )
