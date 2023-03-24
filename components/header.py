@@ -30,13 +30,13 @@ header = dmc.Header(
                                 dmc.MenuDropdown(
                                     [
                                         dmc.MenuItem(
-                                            "External Link",
-                                            href="https://www.github.com/snehilvj",
+                                            "FAQs on NSE Website",
+                                            href="https://m.rbi.org.in/scripts/FAQView.aspx?Id=109",
                                             target="_blank",
                                         ),
                                         dmc.MenuItem(
-                                            "NSE Website",
-                                            href="https://www.github.com/snehilvj",
+                                            "Developer",
+                                            href="https://www.linkedin.com/in/snehilvj/",
                                             target="_blank",
                                         ),
                                     ]
