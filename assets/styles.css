@@ -3,3 +3,7 @@
 :root {
     --nprogress-color-good: #FFA500;
 }
+
+.spinner-icon {
+    display: none;
+}
