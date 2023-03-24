@@ -8,7 +8,7 @@ def get_bond_with_top_yield():
     ytm = (top["Total Yield to Maturity"] * 100).round(2)
     fv = top["Fair Value"].round(2)
     discount = (top["Discount to Fair Value"] * 100).round(2)
-    ask = "4243.00"
+    ask = "4243.12"
     gold = "2221.00"
     units = 10
     maturity = "Jul 2019"

@@ -1,12 +1,18 @@
 import dash_mantine_components as dmc
-from dash import html
+from babel.numbers import format_currency
+from dash import html, clientside_callback, Output, Input, State
 from dash_iconify import DashIconify
 
 from data.top import get_bond_with_top_yield
 
 
+def fc(amount):
+    return format_currency(amount, "INR", locale="en_IN")
+
+
 def top():
     symbol, ytm, fv, discount, ask, gold, units, maturity = get_bond_with_top_yield()
+
     return dmc.Center(
         mt=65,
         children=dmc.Card(
@@ -40,34 +46,40 @@ def top():
                                     DashIconify(icon="material-symbols:remove"),
                                     variant="outline",
                                     w=20,
+                                    id="remove-units",
                                 ),
                                 dmc.NumberInput(
-                                    min=0,
+                                    min=1,
                                     max=units,
                                     value=1,
                                     rightSection=dmc.Text("Units", size="sm"),
                                     rightSectionWidth=50,
                                     w=100,
+                                    id="units",
                                 ),
                                 dmc.ActionIcon(
                                     DashIconify(icon="material-symbols:add"),
                                     variant="outline",
                                     w=20,
+                                    id="add-units",
                                 ),
                             ],
                         ),
                         dmc.Text(
-                            f"Face value: ₹{fv}", align="center", size="sm", my=15
+                            f"Face value: {fc(fv)}", align="center", size="sm", my=15
                         ),
                     ]
                 ),
                 dmc.CardSection(
                     [
                         dmc.Accordion(
-                            styles={"item": {"border": "none"}, "control": {"paddingRight": 16},
-                                    "chevron": {"width": 100, "justifyContent": "end"}},
+                            styles={
+                                "item": {"border": "none"},
+                                "control": {"paddingRight": 16},
+                                "chevron": {"width": 100, "justifyContent": "end"},
+                            },
                             mb=-5,
-                            chevron=dmc.Text(f"{discount}%"),
+                            chevron=dmc.Text(f"{discount}%", weight=500),
                             disableChevronRotation=True,
                             children=[
                                 dmc.AccordionItem(
@@ -94,16 +106,18 @@ def top():
                                                     position="apart",
                                                     children=[
                                                         dmc.Text("Current ask price"),
-                                                        dmc.Text(f"₹{ask}", weight=500),
+                                                        dmc.Text(
+                                                            fc(ask),
+                                                            id="current-ask-price",
+                                                            weight=500,
+                                                        ),
                                                     ],
                                                 ),
                                                 dmc.Group(
                                                     position="apart",
                                                     children=[
                                                         dmc.Text("Current gold price"),
-                                                        dmc.Text(
-                                                            f"₹{gold}", weight=500
-                                                        ),
+                                                        dmc.Text(fc(gold), weight=500),
                                                     ],
                                                     my=10,
                                                 ),
@@ -135,7 +149,7 @@ def top():
                     position="apart",
                     children=[
                         dmc.Text("Investment Amount"),
-                        dmc.Text("₹5,45,107", weight=500),
+                        dmc.Text(fc(ask), id="investment-amount", weight=500),
                     ],
                 ),
                 dmc.Anchor(
@@ -158,3 +172,37 @@ def top():
             w=350,
         ),
     )
+
+
+clientside_callback(
+    """
+    function updateUnits(a, r, units, min, max) {
+        const triggered = window.dash_clientside.callback_context.triggered[0]
+        if (triggered.prop_id.includes("add")) {
+            return Math.min(max, units + 1)
+        } else {
+            return Math.max(units - 1, min)
+        }
+    }
+    """,
+    Output("units", "value"),
+    Input("add-units", "n_clicks"),
+    Input("remove-units", "n_clicks"),
+    State("units", "value"),
+    State("units", "min"),
+    State("units", "max"),
+    prevent_initial_call=True,
+)
+
+clientside_callback(
+    """
+    function updateUnits(units, currentAsk) {
+        const ask = currentAsk.replace("₹", "").replace(",", "")
+        const amount = units * parseFloat(ask)
+        return `₹${amount.toLocaleString('hi')}` 
+    }
+    """,
+    Output("investment-amount", "children"),
+    Input("units", "value"),
+    State("current-ask-price", "children"),
+)

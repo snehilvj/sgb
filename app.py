@@ -20,6 +20,7 @@ app.layout = dmc.MantineProvider(
     theme={
         "colorScheme": "dark",
         "fontFamily": "'Inter', sans-serif",
+        "components": {"NavLink": {"styles": {"root": {"borderRadius": 3}}}},
     },
     children=[
         dmc.Container(
