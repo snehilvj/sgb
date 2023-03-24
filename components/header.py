@@ -44,7 +44,6 @@ header = dmc.Header(
                             ],
                         ),
                         dmc.NavLink(label="Explore", w="auto", href="/explore"),
-                        dmc.NavLink(label="Resources", w="auto", href="/resources"),
                     ],
                 ),
             ],

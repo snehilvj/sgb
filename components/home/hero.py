@@ -8,13 +8,13 @@ hero = html.Div(
     children=[
         dmc.Center(
             mt=120,
-            mx=20,
+            mx=10,
             children=[
                 dmc.Stack(
                     spacing=0,
                     p=0,
                     children=[
-                        dmc.Text("Smartest way to invest in Gold", ml=5),
+                        dmc.Text("Smartest way to invest in Gold"),
                         dmc.Text(
                             "Sovereign Gold Bonds",
                             variant="gradient",
@@ -29,6 +29,7 @@ hero = html.Div(
         dmc.Container(
             style={"maxWidth": 550},
             my=40,
+            px=10,
             children=[
                 dmc.Highlight(
                     "The Government of India introduced Sovereign Gold Bonds (SGB) in November 2015. SGBs are debt "
@@ -39,6 +40,6 @@ hero = html.Div(
                 )
             ],
         ),
-        dmc.Group(position="center", spacing=50, children=[table, timeline]),
+        dmc.Group(position="center", spacing=65, children=[table, timeline]),
     ]
 )

@@ -3,7 +3,7 @@ import dash_mantine_components as dmc
 timeline = dmc.Center(
     dmc.Timeline(
         active=-1,
-        w=470,
+        w=350,
         mt=40,
         bulletSize=40,
         color="indigo",

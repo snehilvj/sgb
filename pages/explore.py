@@ -2,6 +2,7 @@ import dash
 import pandas as pd
 import dash_ag_grid as dag
 from dash import html
+import dash_mantine_components as dmc
 
 dash.register_page(__name__, path="/explore")
 
@@ -17,4 +18,4 @@ grid = dag.AgGrid(
     className="ag-theme-alpine-dark",
 )
 
-layout = html.Div([grid, html.Div(id="quickstart-output")])
+layout = html.Div([dmc.Space(h=100), grid, html.Div(id="quickstart-output")])

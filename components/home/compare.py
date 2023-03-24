@@ -2,10 +2,10 @@ import dash_mantine_components as dmc
 from dash import html
 
 returns = {
-    "Sovereign Gold Bond": [100, 220, "Gold appreciation + 2.5% p.a."],
-    "Gold ETFs": [90, 200, "Gold appreciation - Expense Ratio"],
-    "Digital Gold": [80, 200, "Gold appreciation - Platform Charges"],
-    "Physical Gold": [70, 200, "Gold appreciation - Making Charges"],
+    "Sovereign Gold Bond": [100, 180, "Gold appreciation + 2.5% p.a."],
+    "Gold ETFs": [90, 170, "Gold appreciation - Expense Ratio"],
+    "Digital Gold": [80, 170, "Gold appreciation - Platform Charges"],
+    "Physical Gold": [70, 170, "Gold appreciation - Making Charges"],
 }
 
 columns = ["Investment Method", "Returns"]
@@ -36,8 +36,8 @@ for k, v in returns.items():
 table = dmc.Center(
     dmc.Table(
         verticalSpacing="md",
-        w=470,
-        mt=40,
+        w=360,
+        mt=25,
         id="compare-table",
         children=[header, html.Tbody(body)],
     )

@@ -169,7 +169,7 @@ def top():
             withBorder=True,
             shadow="md",
             radius="md",
-            w=350,
+            w=340,
         ),
     )
 
