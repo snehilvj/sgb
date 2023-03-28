@@ -9,7 +9,8 @@ from components.header import header
 external_scripts = [
     ""
     if os.environ.get("dev")
-    else "https://unpkg.com/dash.nprogress@latest/dist/dash.nprogress.js"
+    else "https://unpkg.com/dash.nprogress@latest/dist/dash.nprogress.js",
+    "https://www.googletagmanager.com/gtag/js?id=G-G564E7BWCP",
 ]
 
 app = Dash(__name__, external_scripts=external_scripts, use_pages=True)
