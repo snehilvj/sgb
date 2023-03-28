@@ -30,13 +30,29 @@ header = dmc.Header(
                                 dmc.MenuDropdown(
                                     [
                                         dmc.MenuItem(
-                                            "FAQs on NSE Website",
-                                            href="https://m.rbi.org.in/scripts/FAQView.aspx?Id=109",
+                                            "Developer",
+                                            icon=DashIconify(
+                                                icon="radix-icons:github-logo", width=16
+                                            ),
+                                            href="https://www.linkedin.com/in/snehilvj/",
+                                            target="_blank",
+                                        ),
+                                        dmc.MenuDivider(),
+                                        dmc.MenuLabel("Inspiration"),
+                                        dmc.MenuItem(
+                                            "SGB Analyzer",
+                                            icon=dmc.Image(
+                                                src="/assets/sgb-analyzer.png", width=16
+                                            ),
+                                            href="https://sgbanalyzer.com/home",
                                             target="_blank",
                                         ),
                                         dmc.MenuItem(
-                                            "Developer",
-                                            href="https://www.linkedin.com/in/snehilvj/",
+                                            "Wint Wealth",
+                                            icon=dmc.Image(
+                                                src="/assets/wint.png", width=16
+                                            ),
+                                            href="https://sgb.wintwealth.com",
                                             target="_blank",
                                         ),
                                     ]

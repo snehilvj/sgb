@@ -118,6 +118,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "dash-mantine-react-table"
+version = "0.0.1"
+description = "The right datagrid for Dash when using Dash Mantine Components."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "dash-table"
 version = "5.0.0"
 description = "Dash table"
@@ -362,7 +370,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "20ee3c223545fc40c8ec03026e3146e5463cccd4796de98ff9c3a54150f18500"
+content-hash = "1e523b7a1e8f8b662a29dd83fdbd3bd4006cc36ff422147460033343e2c0dd04"
 
 [metadata.files]
 babel = []
@@ -379,6 +387,7 @@ dash-html-components = [
 ]
 dash-iconify = []
 dash-mantine-components = []
+dash-mantine-react-table = []
 dash-table = [
     {file = "dash_table-5.0.0.tar.gz", hash = "sha256:18624d693d4c8ef2ddec99a6f167593437a7ea0bf153aa20f318c170c5bc7308"},
 ]

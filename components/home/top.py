@@ -1,13 +1,26 @@
 import dash_mantine_components as dmc
+import pandas as pd
 from babel.numbers import format_currency
 from dash import html, clientside_callback, Output, Input, State
 from dash_iconify import DashIconify
 
-from data.top import get_bond_with_top_yield
-
 
 def fc(amount):
     return format_currency(amount, "INR", locale="en_IN")
+
+
+def get_bond_with_top_yield():
+    data = pd.read_csv("./data/sgb.csv")
+    best = data.sort_values(by="YTM", ascending=False).iloc[0]
+    symbol = best["Symbol"]
+    ytm = best["YTM"]
+    fv = best["Fair Value"]
+    discount = best["Disc to Fair Value"]
+    ask = "4243.12"
+    gold = "2221.00"
+    units = 10
+    maturity = "Jul 2019"
+    return symbol, ytm, fv, discount, ask, gold, units, maturity
 
 
 def top():
